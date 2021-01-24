@@ -16,6 +16,10 @@ $ git clone https://github.com/choiHenry/credit-union
 ## 3. Setup virtual environment and packages
 
 Setup virtual environment using [this virtual environments and packages tutorial](https://docs.python.org/3/tutorial/venv.html).
+You need to install packages in 'requirements.txt' using pip say,
+```terminal
+$ pip install pandas
+```
 
 ## 4. Run main.py
 
