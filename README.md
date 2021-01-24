@@ -4,7 +4,8 @@ You can use just the data in this repo or you could try run the script on your o
 
 ## 1. Install python
 
-Install python(version >= 3.6), pip, 
+Install python(version >= 3.6).
+Download bare python in [official python download page](https://www.python.org/downloads/) or you can download [anaconda individual edition](https://www.anaconda.com/products/individual).
 
 ## 2. Clone this repo
 
