@@ -3,6 +3,7 @@ class Capi:
         districtList = ["서울", "경기", "인천", "부산", "대구", "광주", "대전",
                         "세종", "울산", "강원", "경북", "경남", "충북", "충남",
                         "전북", "전남", "제주"]
+
         self._districtList = districtList
 
     @property
@@ -31,7 +32,7 @@ class Capi:
         for district in self.districtList:
             driver.find_element_by_link_text(district).click()
             page = driver.find_element_by_xpath('//*[@id="contents"]/div/section/div[3]/p[2]').text
-            pageNum = re.findall('\d', page)[1]
+            pageNum = re.findall('\d+', page)[1]
 
             driver.implicitly_wait(3)
             target = driver.find_elements_by_tag_name('table')
@@ -41,6 +42,31 @@ class Capi:
 
             if (int(pageNum) <= 10):
                 i = 2
+                while (i <= int(pageNum)):
+                    driver.find_element_by_link_text(str(i)).click()
+                    driver.implicitly_wait(3)
+                    target = driver.find_elements_by_tag_name('table')
+                    html = target[0].get_attribute('outerHTML')
+                    table = pd.read_html(html, encoding='utf-8')[0]
+                    tables.append(table)
+                    i += 1
+            elif (int(pageNum) <= 20):
+                i = 2
+                while (i <= 10):
+                    driver.find_element_by_link_text(str(i)).click()
+                    driver.implicitly_wait(3)
+                    target = driver.find_elements_by_tag_name('table')
+                    html = target[0].get_attribute('outerHTML')
+                    table = pd.read_html(html, encoding='utf-8')[0]
+                    tables.append(table)
+                    i += 1
+                driver.find_element_by_link_text('다음').click()
+                driver.implicitly_wait(3)
+                target = driver.find_elements_by_tag_name('table')
+                html = target[0].get_attribute('outerHTML')
+                table = pd.read_html(html, encoding='utf-8')[0]
+                tables.append(table)
+                i += 1
                 while (i <= int(pageNum)):
                     driver.find_element_by_link_text(str(i)).click()
                     driver.implicitly_wait(3)
@@ -60,14 +86,28 @@ class Capi:
                     tables.append(table)
                     i += 1
                 driver.find_element_by_link_text('다음').click()
-                driver.find_element_by_link_text(str(i)).click()
                 driver.implicitly_wait(3)
                 target = driver.find_elements_by_tag_name('table')
                 html = target[0].get_attribute('outerHTML')
                 table = pd.read_html(html, encoding='utf-8')[0]
                 tables.append(table)
                 i += 1
-                while (i <= pageNum):
+                while (i <= 20):
+                    driver.find_element_by_link_text(str(i)).click()
+                    driver.implicitly_wait(3)
+                    target = driver.find_elements_by_tag_name('table')
+                    html = target[0].get_attribute('outerHTML')
+                    table = pd.read_html(html, encoding='utf-8')[0]
+                    tables.append(table)
+                    i += 1
+                driver.find_element_by_link_text('다음').click()
+                driver.implicitly_wait(3)
+                target = driver.find_elements_by_tag_name('table')
+                html = target[0].get_attribute('outerHTML')
+                table = pd.read_html(html, encoding='utf-8')[0]
+                tables.append(table)
+                i += 1
+                while (i <= int(pageNum)):
                     driver.find_element_by_link_text(str(i)).click()
                     driver.implicitly_wait(3)
                     target = driver.find_elements_by_tag_name('table')
@@ -77,5 +117,6 @@ class Capi:
                     i += 1
 
             df = pd.concat(tables)
-            df.reset_index(inplace=True)
-            df.to_csv(f'/data/{district}.csv')
+            df.reset_index(drop=True, inplace=True)
+            df.index = df.index + 1
+            df.to_csv(f'./data/{district}.csv')
