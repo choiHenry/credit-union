@@ -19,6 +19,10 @@ class Capi:
         from selenium import webdriver
         import re
         import pandas as pd
+        import os
+
+        if not os.path.exists('./data'):
+            os.makedirs('./data')
 
         driver = webdriver.Chrome('./chromedriver')
         url = "http://cu.co.kr/cu/ad/cuSearch.do"
@@ -74,4 +78,4 @@ class Capi:
 
             df = pd.concat(tables)
             df.reset_index(inplace=True)
-            df.to_csv(district+'.csv')
+            df.to_csv(f'/data/{district}.csv')

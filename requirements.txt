@@ -1,0 +1,40 @@
+beautifulsoup4 @ file:///tmp/build/80754af9/beautifulsoup4_1601924105527/work
+bleach==3.2.1
+brotlipy==0.7.0
+certifi==2020.12.5
+cffi @ file:///opt/concourse/worker/volumes/live/fdab5f8f-d9cf-4e28-48c7-38c4ee85b3c3/volume/cffi_1606255125152/work
+chardet==4.0.0
+colorama==0.4.4
+cryptography @ file:///opt/concourse/worker/volumes/live/225dfa69-5c76-45c8-460f-52e9c98127f3/volume/cryptography_1607636753993/work
+docutils==0.16
+idna==2.10
+importlib-metadata==3.4.0
+keyring==21.8.0
+lxml @ file:///opt/concourse/worker/volumes/live/a0c9b779-cad6-4003-40fb-ffad3dc20460/volume/lxml_1606516858902/work
+mkl-fft==1.2.0
+mkl-random==1.1.1
+mkl-service==2.3.0
+numpy @ file:///opt/concourse/worker/volumes/live/e6a5a904-ea21-4841-4eec-d53e1ac1014c/volume/numpy_and_numpy_base_1603479626870/work
+packaging==20.8
+pandas==1.1.5
+pkginfo==1.7.0
+pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+Pygments==2.7.4
+pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1608057966937/work
+pyparsing==2.4.7
+PySocks @ file:///opt/concourse/worker/volumes/live/286ddfa9-f2fd-40b3-4c68-b14dbfd7c9fa/volume/pysocks_1605305809963/work
+python-dateutil==2.8.1
+pytz @ file:///tmp/build/80754af9/pytz_1608922264688/work
+readme-renderer==28.0
+requests==2.25.1
+requests-toolbelt==0.9.1
+rfc3986==1.4.0
+selenium==3.141.0
+six @ file:///opt/concourse/worker/volumes/live/5839b2d2-7415-4ff0-4c61-c4cddf798f7c/volume/six_1605205320479/work
+soupsieve @ file:///tmp/build/80754af9/soupsieve_1607965878077/work
+tqdm==4.56.0
+twine==3.3.0
+typing-extensions==3.7.4.3
+urllib3==1.26.2
+webencodings==0.5.1
+zipp==3.4.0
